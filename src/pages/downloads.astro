@@ -49,15 +49,17 @@ import { SITE_TITLE } from '../consts';
 				box-shadow: var(--box-shadow-lg);
 			}
 			.platform-icon {
-				width: 48px;
-				height: 48px;
+				width: 56px;
+				height: 56px;
 				background: #000000;
 				border-radius: 8px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				margin-bottom: 1.5rem;
-				font-size: 1.5rem;
+				color: #ffffff;
+				font-size: 1.75rem;
+				font-weight: 700;
 			}
 			.download-card h3 {
 				font-size: 1.75rem;
@@ -187,16 +189,12 @@ import { SITE_TITLE } from '../consts';
 
 				<div class="download-grid">
 					<div class="download-card">
-						<div class="platform-icon">⊞</div>
+						<div class="platform-icon">W</div>
 						<h3>Windows</h3>
 						<p class="platform-desc">For Windows 10 and later</p>
 						<div class="download-options">
 							<a href="#" class="btn-download">
-								<span>Windows 64-bit</span>
-								<span>→</span>
-							</a>
-							<a href="#" class="btn-download">
-								<span>Windows 32-bit</span>
+								<span>Download for Windows</span>
 								<span>→</span>
 							</a>
 						</div>
@@ -204,20 +202,12 @@ import { SITE_TITLE } from '../consts';
 					</div>
 
 					<div class="download-card">
-						<div class="platform-icon">⌘</div>
+						<div class="platform-icon">L</div>
 						<h3>Linux</h3>
-						<p class="platform-desc">For all major distributions</p>
+						<p class="platform-desc">For Debian/Ubuntu distributions</p>
 						<div class="download-options">
 							<a href="#" class="btn-download">
-								<span>.deb (Debian/Ubuntu)</span>
-								<span>→</span>
-							</a>
-							<a href="#" class="btn-download">
-								<span>.rpm (Fedora/RHEL)</span>
-								<span>→</span>
-							</a>
-							<a href="#" class="btn-download">
-								<span>AppImage</span>
+								<span>Download .deb Package</span>
 								<span>→</span>
 							</a>
 						</div>
