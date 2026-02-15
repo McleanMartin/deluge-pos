@@ -8,138 +8,263 @@ import { SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Downloads - ${SITE_TITLE}`} description="Download Deluge POS for Windows, macOS, and Linux" />
+		<BaseHead title={`Downloads - ${SITE_TITLE}`} description="Download Deluge POS for Windows and Linux" />
 		<style>
+			main {
+				padding: 4rem 2rem;
+			}
+			.downloads-container {
+				max-width: 1000px;
+				margin: 0 auto;
+			}
 			.page-header {
 				text-align: center;
-				margin-bottom: 3em;
+				margin-bottom: 4rem;
 			}
 			.page-header h1 {
-				font-size: 3em;
-				margin-bottom: 0.3em;
+				font-size: 3rem;
+				margin-bottom: 1rem;
 			}
-			.download-section {
-				margin: 3em 0;
+			.page-header p {
+				font-size: 1.125rem;
+				color: rgb(var(--gray));
+				max-width: 600px;
+				margin: 0 auto;
 			}
 			.download-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 2em;
-				margin: 2em 0;
+				grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+				gap: 2rem;
+				margin-bottom: 4rem;
 			}
 			.download-card {
 				background: #ffffff;
-				padding: 2em;
-				border: 1px solid #e0e0e0;
-				border-radius: 4px;
-				transition: box-shadow 0.2s;
+				padding: 2.5rem;
+				border: 2px solid rgb(var(--gray-medium));
+				border-radius: var(--border-radius);
+				transition: var(--transition);
 			}
 			.download-card:hover {
-				box-shadow: var(--box-shadow);
+				border-color: rgb(var(--black));
+				box-shadow: var(--box-shadow-lg);
+			}
+			.platform-icon {
+				width: 48px;
+				height: 48px;
+				background: #000000;
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 1.5rem;
+				font-size: 1.5rem;
 			}
 			.download-card h3 {
-				margin-top: 0;
-				font-size: 1.8em;
+				font-size: 1.75rem;
+				margin-bottom: 0.5rem;
 			}
-			.download-button {
-				display: block;
+			.download-card .platform-desc {
+				color: rgb(var(--gray));
+				margin-bottom: 1.5rem;
+				font-size: 0.95rem;
+			}
+			.download-options {
+				display: flex;
+				flex-direction: column;
+				gap: 0.75rem;
+				margin-bottom: 1.5rem;
+			}
+			.btn-download {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 				background: #000000;
 				color: #ffffff;
-				padding: 0.9em 1.5em;
-				border-radius: 4px;
+				padding: 1rem 1.25rem;
+				border-radius: var(--border-radius);
 				text-decoration: none;
-				margin: 0.5em 0;
-				transition: background 0.2s;
+				font-weight: 600;
+				transition: var(--transition);
+			}
+			.btn-download:hover {
+				opacity: 1;
+				background: #1a1a1a;
+				transform: translateX(4px);
+			}
+			.version-badge {
+				display: inline-block;
+				background: rgb(var(--gray-light));
+				color: rgb(var(--gray-dark));
+				padding: 0.25rem 0.75rem;
+				border-radius: 4px;
+				font-size: 0.8rem;
+				font-weight: 600;
+				margin-top: 1rem;
+			}
+			.requirements-section {
+				background: rgb(var(--gray-light));
+				padding: 2.5rem;
+				border-radius: var(--border-radius);
+				margin-top: 3rem;
+			}
+			.requirements-section h3 {
+				font-size: 1.5rem;
+				margin-bottom: 1.5rem;
+			}
+			.requirements-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1.5rem;
+			}
+			.requirement-item {
+				display: flex;
+				align-items: flex-start;
+				gap: 0.75rem;
+			}
+			.requirement-icon {
+				width: 20px;
+				height: 20px;
+				background: #000000;
+				border-radius: 50%;
+				flex-shrink: 0;
+				margin-top: 0.2rem;
+			}
+			.requirement-text {
+				color: rgb(var(--gray-dark));
+				line-height: 1.6;
+			}
+			.support-cta {
 				text-align: center;
-				font-weight: 500;
+				margin-top: 3rem;
+				padding: 2rem;
+				background: #ffffff;
+				border: 2px solid rgb(var(--gray-medium));
+				border-radius: var(--border-radius);
 			}
-			.download-button:hover {
-				background: #333333;
+			.support-cta p {
+				margin-bottom: 1rem;
+				font-size: 1.125rem;
 			}
-			.version-info {
-				color: rgb(var(--gray));
-				font-size: 0.85em;
-				margin-top: 1.5em;
-				padding-top: 1em;
-				border-top: 1px solid #e0e0e0;
+			.btn-secondary {
+				display: inline-block;
+				padding: 0.875rem 2rem;
+				background: transparent;
+				color: #000000;
+				border: 2px solid #000000;
+				border-radius: var(--border-radius);
+				font-weight: 600;
+				text-decoration: none;
+				transition: var(--transition);
 			}
-			.requirements-box {
-				background: #f8f8f8;
-				padding: 2em;
-				border-left: 3px solid #000000;
-				margin: 2em 0;
+			.btn-secondary:hover {
+				opacity: 1;
+				background: #000000;
+				color: #ffffff;
 			}
-			.requirements-box h3 {
-				margin-top: 0;
-			}
-			.requirements-box ul {
-				margin: 1em 0;
-				line-height: 1.8;
+			@media (max-width: 768px) {
+				.download-grid {
+					grid-template-columns: 1fr;
+				}
+				.page-header h1 {
+					font-size: 2rem;
+				}
+				.requirements-grid {
+					grid-template-columns: 1fr;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<div class="page-header">
-				<h1>Downloads</h1>
-				<p>
-					Get the latest version of Deluge POS for your operating system.
-				</p>
-			</div>
+			<div class="downloads-container">
+				<div class="page-header">
+					<h1>Download Deluge POS</h1>
+					<p>
+						Get the latest version for your platform. Free to download with automatic updates.
+					</p>
+				</div>
 
-			<div class="download-grid">
-				<div class="download-card">
-					<h3>Windows</h3>
-					<p>For Windows 10 and later</p>
-					<a href="#" class="download-button">Windows 64-bit</a>
-					<a href="#" class="download-button">Windows 32-bit</a>
-					<div class="version-info">
-						Version 1.0.0<br>
-						February 15, 2026
+				<div class="download-grid">
+					<div class="download-card">
+						<div class="platform-icon">⊞</div>
+						<h3>Windows</h3>
+						<p class="platform-desc">For Windows 10 and later</p>
+						<div class="download-options">
+							<a href="#" class="btn-download">
+								<span>Windows 64-bit</span>
+								<span>→</span>
+							</a>
+							<a href="#" class="btn-download">
+								<span>Windows 32-bit</span>
+								<span>→</span>
+							</a>
+						</div>
+						<span class="version-badge">v1.0.0 • Feb 15, 2026</span>
+					</div>
+
+					<div class="download-card">
+						<div class="platform-icon">⌘</div>
+						<h3>Linux</h3>
+						<p class="platform-desc">For all major distributions</p>
+						<div class="download-options">
+							<a href="#" class="btn-download">
+								<span>.deb (Debian/Ubuntu)</span>
+								<span>→</span>
+							</a>
+							<a href="#" class="btn-download">
+								<span>.rpm (Fedora/RHEL)</span>
+								<span>→</span>
+							</a>
+							<a href="#" class="btn-download">
+								<span>AppImage</span>
+								<span>→</span>
+							</a>
+						</div>
+						<span class="version-badge">v1.0.0 • Feb 15, 2026</span>
 					</div>
 				</div>
 
-				<div class="download-card">
-					<h3>macOS</h3>
-					<p>For macOS 11 (Big Sur) and later</p>
-					<a href="#" class="download-button">macOS Intel</a>
-					<a href="#" class="download-button">macOS Apple Silicon</a>
-					<div class="version-info">
-						Version 1.0.0<br>
-						February 15, 2026
-					</div>
-				</div>
-
-				<div class="download-card">
-					<h3>Linux</h3>
-					<p>For all major distributions</p>
-					<a href="#" class="download-button">.deb Package</a>
-					<a href="#" class="download-button">.rpm Package</a>
-					<a href="#" class="download-button">AppImage</a>
-					<div class="version-info">
-						Version 1.0.0<br>
-						February 15, 2026
-					</div>
-				</div>
-			</div>
-
-			<div class="download-section">
-				<div class="requirements-box">
+				<div class="requirements-section">
 					<h3>System Requirements</h3>
-					<ul>
-						<li>Operating System: Windows 10, macOS 11, or modern Linux distribution</li>
-						<li>RAM: 4GB minimum (8GB recommended)</li>
-						<li>Disk Space: 500MB available</li>
-						<li>Display: 1024x768 minimum resolution</li>
-						<li>Internet connection for updates</li>
-					</ul>
+					<div class="requirements-grid">
+						<div class="requirement-item">
+							<div class="requirement-icon"></div>
+							<div class="requirement-text">
+								<strong>OS:</strong> Windows 10+ or modern Linux
+							</div>
+						</div>
+						<div class="requirement-item">
+							<div class="requirement-icon"></div>
+							<div class="requirement-text">
+								<strong>RAM:</strong> 4GB minimum (8GB recommended)
+							</div>
+						</div>
+						<div class="requirement-item">
+							<div class="requirement-icon"></div>
+							<div class="requirement-text">
+								<strong>Storage:</strong> 500MB available space
+							</div>
+						</div>
+						<div class="requirement-item">
+							<div class="requirement-icon"></div>
+							<div class="requirement-text">
+								<strong>Display:</strong> 1024x768 minimum
+							</div>
+						</div>
+						<div class="requirement-item">
+							<div class="requirement-icon"></div>
+							<div class="requirement-text">
+								<strong>Network:</strong> Internet for updates
+							</div>
+						</div>
+					</div>
 				</div>
 
-				<p style="text-align: center; margin-top: 3em;">
-					Need assistance with installation?
-					<a href="/contact">Contact our support team</a>
-				</p>
+				<div class="support-cta">
+					<p>Need help with installation?</p>
+					<a href="/contact" class="btn-secondary">Contact Support</a>
+				</div>
 			</div>
 		</main>
 		<Footer />

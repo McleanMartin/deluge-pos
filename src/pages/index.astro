@@ -10,126 +10,214 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			main {
+				padding: 0;
+			}
 			.hero {
-				text-align: center;
-				padding: 4em 0 3em;
 				background: #000000;
 				color: #ffffff;
-				margin: -3em -1em 3em;
+				padding: 6rem 2rem;
+				text-align: center;
+			}
+			.hero-content {
+				max-width: 900px;
+				margin: 0 auto;
 			}
 			.hero h1 {
 				color: #ffffff;
-				font-size: 3.5em;
-				margin-bottom: 0.3em;
-				font-weight: 700;
-				letter-spacing: -0.03em;
+				font-size: 4rem;
+				margin-bottom: 1.5rem;
+				font-weight: 800;
+				letter-spacing: -0.04em;
+				line-height: 1.1;
 			}
-			.hero p {
-				font-size: 1.2em;
-				color: rgba(255, 255, 255, 0.9);
+			.hero-subtitle {
+				font-size: 1.25rem;
+				color: rgba(255, 255, 255, 0.85);
+				margin-bottom: 3rem;
+				line-height: 1.6;
 				max-width: 700px;
-				margin: 0 auto 2em;
+				margin-left: auto;
+				margin-right: auto;
 			}
-			.cta-button {
-				display: inline-block;
+			.cta-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.875rem 2rem;
+				border-radius: var(--border-radius);
+				font-weight: 600;
+				font-size: 1rem;
+				transition: var(--transition);
+				text-decoration: none;
+				border: 2px solid transparent;
+			}
+			.btn-primary {
 				background: #ffffff;
 				color: #000000;
-				padding: 1em 2.5em;
-				border-radius: 4px;
-				text-decoration: none;
-				font-weight: 600;
-				transition: transform 0.2s, box-shadow 0.2s;
-				margin: 0 0.5em;
 			}
-			.cta-button:hover {
+			.btn-primary:hover {
+				opacity: 1;
 				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+				box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 			}
-			.cta-button.secondary {
+			.btn-secondary {
 				background: transparent;
 				color: #ffffff;
-				border: 2px solid #ffffff;
+				border-color: rgba(255, 255, 255, 0.3);
 			}
-			.features {
+			.btn-secondary:hover {
+				opacity: 1;
+				border-color: #ffffff;
+				background: rgba(255, 255, 255, 0.1);
+			}
+			.features-section {
+				padding: 5rem 2rem;
+				background: #fafafa;
+			}
+			.features-container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.section-title {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+			.section-title h2 {
+				font-size: 2.5rem;
+				margin-bottom: 0.75rem;
+			}
+			.section-title p {
+				font-size: 1.125rem;
+				color: rgb(var(--gray));
+			}
+			.features-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 2em;
-				margin: 3em 0;
+				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
 			}
 			.feature-card {
-				padding: 2em;
 				background: #ffffff;
-				border: 1px solid #e0e0e0;
-				border-radius: 4px;
-				transition: box-shadow 0.2s;
+				padding: 2rem;
+				border-radius: var(--border-radius);
+				border: 1px solid rgb(var(--gray-medium));
+				transition: var(--transition);
 			}
 			.feature-card:hover {
-				box-shadow: var(--box-shadow);
+				box-shadow: var(--box-shadow-lg);
+				border-color: rgb(var(--gray));
+				transform: translateY(-4px);
 			}
 			.feature-card h3 {
-				margin-top: 0;
-				font-size: 1.4em;
+				font-size: 1.25rem;
+				margin-bottom: 0.75rem;
+				color: rgb(var(--black));
 			}
-			.section {
-				margin: 4em 0;
+			.feature-card p {
+				color: rgb(var(--gray));
+				line-height: 1.6;
+				margin: 0;
+			}
+			.cta-section {
+				padding: 5rem 2rem;
 				text-align: center;
+				background: #ffffff;
 			}
-			.section h2 {
-				font-size: 2.2em;
-				margin-bottom: 1em;
+			.cta-section h2 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+			}
+			.cta-section p {
+				font-size: 1.125rem;
+				max-width: 700px;
+				margin: 0 auto 2.5rem;
+			}
+			@media (max-width: 768px) {
+				.hero h1 {
+					font-size: 2.5rem;
+				}
+				.hero-subtitle {
+					font-size: 1.125rem;
+				}
+				.section-title h2 {
+					font-size: 2rem;
+				}
+				.features-grid {
+					grid-template-columns: 1fr;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<div class="hero">
-				<h1>Deluge POS</h1>
-				<p>
-					Modern Point of Sale solution for retail and wholesale businesses.
-					Streamline operations, manage inventory, and grow your business.
-				</p>
-				<div>
-					<a href="/downloads" class="cta-button">Download Now</a>
-					<a href="/contact" class="cta-button secondary">Contact Sales</a>
+			<section class="hero">
+				<div class="hero-content">
+					<h1>Modern Point of Sale for Retail & Wholesale</h1>
+					<p class="hero-subtitle">
+						Deluge POS streamlines your business operations with powerful inventory management,
+						sales analytics, and an intuitive interface built for speed and reliability.
+					</p>
+					<div class="cta-buttons">
+						<a href="/downloads" class="btn btn-primary">Get Started</a>
+						<a href="/contact" class="btn btn-secondary">Contact Sales</a>
+					</div>
 				</div>
-			</div>
+			</section>
 
-			<div class="features">
-				<div class="feature-card">
-					<h3>Retail & Wholesale</h3>
-					<p>Seamlessly handle both retail and wholesale transactions with flexible pricing and customer management.</p>
+			<section class="features-section">
+				<div class="features-container">
+					<div class="section-title">
+						<h2>Everything you need to run your business</h2>
+						<p>Powerful features designed for retail and wholesale operations</p>
+					</div>
+					<div class="features-grid">
+						<div class="feature-card">
+							<h3>Retail & Wholesale</h3>
+							<p>Seamlessly manage both retail and wholesale transactions with flexible pricing, customer tiers, and bulk order processing.</p>
+						</div>
+						<div class="feature-card">
+							<h3>Inventory Management</h3>
+							<p>Real-time stock tracking, automatic reorder alerts, and comprehensive inventory control across multiple locations.</p>
+						</div>
+						<div class="feature-card">
+							<h3>Sales Analytics</h3>
+							<p>Detailed reports and actionable insights to help you make data-driven decisions and optimize your business.</p>
+						</div>
+						<div class="feature-card">
+							<h3>Multi-User Support</h3>
+							<p>Role-based access control, user permissions, and activity tracking for your entire team.</p>
+						</div>
+						<div class="feature-card">
+							<h3>Customer Management</h3>
+							<p>Build lasting relationships with comprehensive customer profiles, purchase history, and loyalty programs.</p>
+						</div>
+						<div class="feature-card">
+							<h3>Fast & Reliable</h3>
+							<p>Lightning-fast checkout process with an intuitive interface that requires minimal training.</p>
+						</div>
+					</div>
 				</div>
-				<div class="feature-card">
-					<h3>Inventory Management</h3>
-					<p>Real-time tracking, automatic stock alerts, and comprehensive inventory control.</p>
-				</div>
-				<div class="feature-card">
-					<h3>Sales Analytics</h3>
-					<p>Detailed reports and insights to help you make data-driven business decisions.</p>
-				</div>
-				<div class="feature-card">
-					<h3>Multi-User Support</h3>
-					<p>Role-based access control and user management for your entire team.</p>
-				</div>
-				<div class="feature-card">
-					<h3>Customer Management</h3>
-					<p>Build lasting relationships with comprehensive customer profiles and history.</p>
-				</div>
-				<div class="feature-card">
-					<h3>Easy to Use</h3>
-					<p>Intuitive interface designed for fast checkout and minimal training time.</p>
-				</div>
-			</div>
+			</section>
 
-			<div class="section">
-				<h2>Trusted by Businesses Worldwide</h2>
+			<section class="cta-section">
+				<h2>Ready to transform your business?</h2>
 				<p>
-					Deluge POS is built with modern technology to ensure reliability, speed, and ease of use.
-					Whether you're running a small retail store or managing a large wholesale operation, we provide
-					the tools you need to succeed.
+					Join thousands of businesses worldwide that trust Deluge POS for their daily operations.
+					Built with modern technology for reliability, speed, and ease of use.
 				</p>
-			</div>
+				<div class="cta-buttons">
+					<a href="/downloads" class="btn btn-primary">Download Now</a>
+					<a href="/contact" class="btn btn-secondary">Get in Touch</a>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
