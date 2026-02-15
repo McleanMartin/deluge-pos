@@ -139,6 +139,177 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				max-width: 700px;
 				margin: 0 auto 2.5rem;
 			}
+			/* Stats Section */
+			.stats-section {
+				background: #000000;
+				color: #ffffff;
+				padding: 4rem 2rem;
+			}
+			.stats-container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 3rem;
+				text-align: center;
+			}
+			.stat-item {
+				padding: 1rem;
+			}
+			.stat-number {
+				font-size: 3rem;
+				font-weight: 800;
+				color: #ffffff;
+				margin-bottom: 0.5rem;
+				line-height: 1;
+			}
+			.stat-label {
+				color: rgba(255, 255, 255, 0.7);
+				font-size: 0.95rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			/* Showcase Section */
+			.showcase-section {
+				padding: 5rem 2rem;
+				background: #ffffff;
+			}
+			.showcase-container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.showcase-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 4rem;
+				align-items: center;
+				margin-top: 3rem;
+			}
+			.showcase-grid:nth-child(even) {
+				direction: rtl;
+			}
+			.showcase-grid:nth-child(even) > * {
+				direction: ltr;
+			}
+			.showcase-content h3 {
+				font-size: 2rem;
+				margin-bottom: 1rem;
+			}
+			.showcase-content ul {
+				list-style: none;
+				padding: 0;
+				margin: 1.5rem 0;
+			}
+			.showcase-content li {
+				padding: 0.75rem 0;
+				padding-left: 2rem;
+				position: relative;
+				color: rgb(var(--gray));
+			}
+			.showcase-content li:before {
+				content: "✓";
+				position: absolute;
+				left: 0;
+				color: #000000;
+				font-weight: bold;
+			}
+			.showcase-image {
+				background: rgb(var(--gray-light));
+				border-radius: var(--border-radius);
+				padding: 2rem;
+				border: 2px solid rgb(var(--gray-medium));
+				min-height: 300px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: rgb(var(--gray));
+				font-size: 0.9rem;
+			}
+			/* Testimonials */
+			.testimonials-section {
+				padding: 5rem 2rem;
+				background: rgb(var(--gray-light));
+			}
+			.testimonials-container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.testimonials-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+			.testimonial-card {
+				background: #ffffff;
+				padding: 2rem;
+				border-radius: var(--border-radius);
+				border: 1px solid rgb(var(--gray-medium));
+			}
+			.testimonial-content {
+				font-style: italic;
+				color: rgb(var(--gray-dark));
+				margin-bottom: 1.5rem;
+				line-height: 1.7;
+			}
+			.testimonial-author {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+			.author-avatar {
+				width: 48px;
+				height: 48px;
+				background: #000000;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #ffffff;
+				font-weight: 600;
+			}
+			.author-info h4 {
+				margin: 0;
+				font-size: 0.95rem;
+			}
+			.author-info p {
+				margin: 0.25rem 0 0;
+				font-size: 0.85rem;
+				color: rgb(var(--gray));
+			}
+			/* Integrations */
+			.integrations-section {
+				padding: 4rem 2rem;
+				background: #ffffff;
+				border-top: 1px solid rgb(var(--gray-medium));
+			}
+			.integrations-container {
+				max-width: 900px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			.integrations-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+				gap: 2rem;
+				margin-top: 2.5rem;
+			}
+			.integration-logo {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 1.5rem;
+				background: rgb(var(--gray-light));
+				border-radius: var(--border-radius);
+				font-weight: 600;
+				color: rgb(var(--gray));
+				transition: var(--transition);
+			}
+			.integration-logo:hover {
+				background: rgb(var(--gray-medium));
+			}
 			@media (max-width: 768px) {
 				.hero h1 {
 					font-size: 2.5rem;
@@ -150,6 +321,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					font-size: 2rem;
 				}
 				.features-grid {
+					grid-template-columns: 1fr;
+				}
+				.showcase-grid {
+					grid-template-columns: 1fr;
+				}
+				.stats-grid {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 2rem;
+				}
+				.testimonials-grid {
 					grid-template-columns: 1fr;
 				}
 			}
@@ -168,6 +349,29 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					<div class="cta-buttons">
 						<a href="/downloads" class="btn btn-primary">Get Started</a>
 						<a href="/contact" class="btn btn-secondary">Contact Sales</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="stats-section">
+				<div class="stats-container">
+					<div class="stats-grid">
+						<div class="stat-item">
+							<div class="stat-number">10K+</div>
+							<div class="stat-label">Active Users</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">50M+</div>
+							<div class="stat-label">Transactions</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">99.9%</div>
+							<div class="stat-label">Uptime</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">24/7</div>
+							<div class="stat-label">Support</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -203,6 +407,106 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 							<h3>Fast & Reliable</h3>
 							<p>Lightning-fast checkout process with an intuitive interface that requires minimal training.</p>
 						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="showcase-section">
+				<div class="showcase-container">
+					<div class="showcase-grid">
+						<div class="showcase-content">
+							<h3>Powerful Inventory Control</h3>
+							<p>Take complete control of your stock with real-time tracking and automated management.</p>
+							<ul>
+								<li>Multi-location inventory tracking</li>
+								<li>Automatic low stock alerts</li>
+								<li>Barcode scanning support</li>
+								<li>Batch and serial number tracking</li>
+								<li>Stock transfer between locations</li>
+							</ul>
+						</div>
+						<div class="showcase-image">
+							Dashboard Screenshot
+						</div>
+					</div>
+
+					<div class="showcase-grid">
+						<div class="showcase-content">
+							<h3>Advanced Analytics</h3>
+							<p>Make data-driven decisions with comprehensive sales reports and insights.</p>
+							<ul>
+								<li>Real-time sales dashboards</li>
+								<li>Custom report generation</li>
+								<li>Profit margin analysis</li>
+								<li>Best-selling products tracking</li>
+								<li>Employee performance metrics</li>
+							</ul>
+						</div>
+						<div class="showcase-image">
+							Analytics Screenshot
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="testimonials-section">
+				<div class="testimonials-container">
+					<div class="section-title">
+						<h2>Trusted by businesses worldwide</h2>
+						<p>See what our customers have to say</p>
+					</div>
+					<div class="testimonials-grid">
+						<div class="testimonial-card">
+							<div class="testimonial-content">
+								"Deluge POS transformed our retail operations. The inventory management alone saved us countless hours every week."
+							</div>
+							<div class="testimonial-author">
+								<div class="author-avatar">SM</div>
+								<div class="author-info">
+									<h4>Sarah Martinez</h4>
+									<p>Owner, Martinez Electronics</p>
+								</div>
+							</div>
+						</div>
+						<div class="testimonial-card">
+							<div class="testimonial-content">
+								"The best POS system we've used. Fast, reliable, and the analytics help us make better business decisions every day."
+							</div>
+							<div class="testimonial-author">
+								<div class="author-avatar">JC</div>
+								<div class="author-info">
+									<h4>James Chen</h4>
+									<p>Manager, Chen Wholesale</p>
+								</div>
+							</div>
+						</div>
+						<div class="testimonial-card">
+							<div class="testimonial-content">
+								"Outstanding support and incredibly easy to use. Our team was up and running in less than a day."
+							</div>
+							<div class="testimonial-author">
+								<div class="author-avatar">EJ</div>
+								<div class="author-info">
+									<h4>Emily Johnson</h4>
+									<p>CEO, Johnson Retail Group</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="integrations-section">
+				<div class="integrations-container">
+					<h2>Integrates with your favorite tools</h2>
+					<p>Seamlessly connect with popular business software</p>
+					<div class="integrations-grid">
+						<div class="integration-logo">QuickBooks</div>
+						<div class="integration-logo">Stripe</div>
+						<div class="integration-logo">PayPal</div>
+						<div class="integration-logo">Shopify</div>
+						<div class="integration-logo">Mailchimp</div>
+						<div class="integration-logo">Xero</div>
 					</div>
 				</div>
 			</section>
