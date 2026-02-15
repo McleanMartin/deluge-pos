@@ -9,39 +9,127 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.hero {
+				text-align: center;
+				padding: 4em 0 3em;
+				background: #000000;
+				color: #ffffff;
+				margin: -3em -1em 3em;
+			}
+			.hero h1 {
+				color: #ffffff;
+				font-size: 3.5em;
+				margin-bottom: 0.3em;
+				font-weight: 700;
+				letter-spacing: -0.03em;
+			}
+			.hero p {
+				font-size: 1.2em;
+				color: rgba(255, 255, 255, 0.9);
+				max-width: 700px;
+				margin: 0 auto 2em;
+			}
+			.cta-button {
+				display: inline-block;
+				background: #ffffff;
+				color: #000000;
+				padding: 1em 2.5em;
+				border-radius: 4px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: transform 0.2s, box-shadow 0.2s;
+				margin: 0 0.5em;
+			}
+			.cta-button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+			}
+			.cta-button.secondary {
+				background: transparent;
+				color: #ffffff;
+				border: 2px solid #ffffff;
+			}
+			.features {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2em;
+				margin: 3em 0;
+			}
+			.feature-card {
+				padding: 2em;
+				background: #ffffff;
+				border: 1px solid #e0e0e0;
+				border-radius: 4px;
+				transition: box-shadow 0.2s;
+			}
+			.feature-card:hover {
+				box-shadow: var(--box-shadow);
+			}
+			.feature-card h3 {
+				margin-top: 0;
+				font-size: 1.4em;
+			}
+			.section {
+				margin: 4em 0;
+				text-align: center;
+			}
+			.section h2 {
+				font-size: 2.2em;
+				margin-bottom: 1em;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Welcome to Deluge POS</h1>
-			<p>
-				<strong>Deluge POS</strong> is a modern, powerful Point of Sale solution designed specifically
-				for retail and wholesale businesses. Streamline your operations, manage inventory, and grow your business
-				with our comprehensive POS system.
-			</p>
+			<div class="hero">
+				<h1>Deluge POS</h1>
+				<p>
+					Modern Point of Sale solution for retail and wholesale businesses.
+					Streamline operations, manage inventory, and grow your business.
+				</p>
+				<div>
+					<a href="/downloads" class="cta-button">Download Now</a>
+					<a href="/contact" class="cta-button secondary">Contact Sales</a>
+				</div>
+			</div>
 
-			<h2>Key Features</h2>
-			<ul>
-				<li><strong>Retail & Wholesale Management</strong> - Seamlessly handle both retail and wholesale transactions</li>
-				<li><strong>Inventory Tracking</strong> - Real-time inventory management and stock alerts</li>
-				<li><strong>Multi-User Support</strong> - Role-based access control for your team</li>
-				<li><strong>Sales Analytics</strong> - Comprehensive reporting and insights</li>
-				<li><strong>Customer Management</strong> - Build and maintain customer relationships</li>
-				<li><strong>Easy to Use</strong> - Intuitive interface for fast checkout</li>
-			</ul>
+			<div class="features">
+				<div class="feature-card">
+					<h3>Retail & Wholesale</h3>
+					<p>Seamlessly handle both retail and wholesale transactions with flexible pricing and customer management.</p>
+				</div>
+				<div class="feature-card">
+					<h3>Inventory Management</h3>
+					<p>Real-time tracking, automatic stock alerts, and comprehensive inventory control.</p>
+				</div>
+				<div class="feature-card">
+					<h3>Sales Analytics</h3>
+					<p>Detailed reports and insights to help you make data-driven business decisions.</p>
+				</div>
+				<div class="feature-card">
+					<h3>Multi-User Support</h3>
+					<p>Role-based access control and user management for your entire team.</p>
+				</div>
+				<div class="feature-card">
+					<h3>Customer Management</h3>
+					<p>Build lasting relationships with comprehensive customer profiles and history.</p>
+				</div>
+				<div class="feature-card">
+					<h3>Easy to Use</h3>
+					<p>Intuitive interface designed for fast checkout and minimal training time.</p>
+				</div>
+			</div>
 
-			<h2>Why Choose Deluge POS?</h2>
-			<p>
-				Whether you're running a small retail store or managing a wholesale operation, Deluge POS
-				provides the tools you need to succeed. Our solution is built with modern technology to
-				ensure reliability, speed, and ease of use.
-			</p>
-
-			<p>
-				<a href="/downloads">Download Deluge POS</a> today and transform the way you do business.
-				Visit our <a href="/blog">blog</a> for tips, updates, and best practices, or
-				<a href="/contact">contact us</a> for more information.
-			</p>
+			<div class="section">
+				<h2>Trusted by Businesses Worldwide</h2>
+				<p>
+					Deluge POS is built with modern technology to ensure reliability, speed, and ease of use.
+					Whether you're running a small retail store or managing a large wholesale operation, we provide
+					the tools you need to succeed.
+				</p>
+			</div>
 		</main>
 		<Footer />
 	</body>
