@@ -1,0 +1,294 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Quick Start Guide - ${SITE_TITLE}`} description="Get started with Deluge POS in minutes" />
+		<style>
+			main {
+				padding: 4rem 2rem;
+			}
+			.doc-container {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+			.doc-header {
+				margin-bottom: 3rem;
+			}
+			.doc-header h1 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+			}
+			.doc-header .meta {
+				color: rgb(var(--gray));
+				font-size: 0.95rem;
+			}
+			.doc-content {
+				line-height: 1.8;
+			}
+			.doc-content h2 {
+				font-size: 2rem;
+				margin-top: 3rem;
+				margin-bottom: 1.5rem;
+				padding-bottom: 0.5rem;
+				border-bottom: 2px solid rgb(var(--gray-medium));
+			}
+			.doc-content h3 {
+				font-size: 1.5rem;
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+			}
+			.doc-content p {
+				margin-bottom: 1.5rem;
+				color: rgb(var(--gray-dark));
+			}
+			.doc-content ul, .doc-content ol {
+				margin: 1.5rem 0;
+				padding-left: 2rem;
+			}
+			.doc-content li {
+				margin: 0.75rem 0;
+				color: rgb(var(--gray-dark));
+			}
+			.doc-content code {
+				background: rgb(var(--gray-light));
+				padding: 0.25rem 0.5rem;
+				border-radius: 4px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.9em;
+			}
+			.doc-content pre {
+				background: rgb(var(--gray-dark));
+				color: #ffffff;
+				padding: 1.5rem;
+				border-radius: var(--border-radius);
+				overflow-x: auto;
+				margin: 1.5rem 0;
+			}
+			.doc-content pre code {
+				background: none;
+				padding: 0;
+				color: #ffffff;
+			}
+			.callout {
+				padding: 1.5rem;
+				border-left: 4px solid #000000;
+				background: rgb(var(--gray-light));
+				margin: 2rem 0;
+				border-radius: 4px;
+			}
+			.callout-title {
+				font-weight: 700;
+				margin-bottom: 0.5rem;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+			.doc-nav {
+				display: flex;
+				justify-content: space-between;
+				margin-top: 4rem;
+				padding-top: 2rem;
+				border-top: 2px solid rgb(var(--gray-medium));
+			}
+			.nav-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.875rem 1.5rem;
+				background: #000000;
+				color: #ffffff;
+				text-decoration: none;
+				border-radius: var(--border-radius);
+				font-weight: 600;
+				transition: var(--transition);
+			}
+			.nav-btn:hover {
+				opacity: 1;
+				background: #333333;
+			}
+			@media (max-width: 768px) {
+				.doc-header h1 {
+					font-size: 2rem;
+				}
+				.doc-nav {
+					flex-direction: column;
+					gap: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="doc-container">
+				<div class="doc-header">
+					<h1>Quick Start Guide</h1>
+					<div class="meta">Getting Started • 10 minute read</div>
+				</div>
+
+				<div class="doc-content">
+					<p>
+						Welcome to Deluge POS! This guide will help you get started with your new point of sale system in just a few minutes.
+						Whether you're setting up a single terminal or planning a multi-location deployment, this guide covers the essentials.
+					</p>
+
+					<h2>Prerequisites</h2>
+					<p>Before you begin, make sure you have:</p>
+					<ul>
+						<li>Downloaded Deluge POS for your platform (Windows or Linux)</li>
+						<li>Admin access to your computer</li>
+						<li>Basic information about your business (name, address, tax details)</li>
+						<li>A receipt printer (optional, but recommended)</li>
+					</ul>
+
+					<h2>Step 1: Installation</h2>
+
+					<h3>Windows Installation</h3>
+					<ol>
+						<li>Double-click the downloaded <code>DelugePOS-Setup.exe</code> file</li>
+						<li>Follow the installation wizard prompts</li>
+						<li>Choose your installation directory (default recommended)</li>
+						<li>Wait for installation to complete</li>
+						<li>Launch Deluge POS from the Start Menu or Desktop shortcut</li>
+					</ol>
+
+					<h3>Linux Installation</h3>
+					<ol>
+						<li>Open Terminal</li>
+						<li>Navigate to your downloads folder</li>
+						<li>Install the package:
+							<pre><code>sudo dpkg -i deluge-pos_1.0.0_amd64.deb
+sudo apt-get install -f  # Install dependencies if needed</code></pre>
+						</li>
+						<li>Launch from applications menu or run <code>deluge-pos</code> in terminal</li>
+					</ol>
+
+					<div class="callout">
+						<div class="callout-title">💡 First Launch</div>
+						<p>On first launch, Deluge POS will create a SQLite database in your user directory. This is perfect for single-terminal operations.
+						For multi-terminal setups, see our <a href="/docs/multi-terminal">Multi-Terminal Setup Guide</a>.</p>
+					</div>
+
+					<h2>Step 2: Company Registration</h2>
+					<p>The first time you run Deluge POS, you'll be prompted to register your company:</p>
+					<ol>
+						<li>Click <strong>Settings</strong> → <strong>Company Information</strong></li>
+						<li>Fill in your business details:
+							<ul>
+								<li><strong>Company Name</strong>: Your business legal name</li>
+								<li><strong>Trading Name</strong>: The name customers see</li>
+								<li><strong>Tax Number</strong>: Your VAT/Tax registration number</li>
+								<li><strong>Address</strong>: Physical business address</li>
+								<li><strong>Contact Details</strong>: Phone, email, website</li>
+							</ul>
+						</li>
+						<li>Click <strong>Save</strong> to complete registration</li>
+					</ol>
+
+					<h2>Step 3: Add Your First Products</h2>
+					<p>Before you can make sales, you need to add some products to your inventory:</p>
+					<ol>
+						<li>Navigate to <strong>Inventory</strong> → <strong>Products</strong></li>
+						<li>Click <strong>Add New Product</strong></li>
+						<li>Enter product details:
+							<ul>
+								<li><strong>Product Name</strong>: Clear, descriptive name</li>
+								<li><strong>SKU/Barcode</strong>: Unique identifier</li>
+								<li><strong>Category</strong>: Product category (create if needed)</li>
+								<li><strong>Selling Price</strong>: Retail price</li>
+								<li><strong>Cost Price</strong>: Your purchase cost (optional)</li>
+								<li><strong>Initial Stock</strong>: Opening stock quantity</li>
+							</ul>
+						</li>
+						<li>Click <strong>Save Product</strong></li>
+						<li>Repeat for all your products</li>
+					</ol>
+
+					<div class="callout">
+						<div class="callout-title">⚡ Quick Tip</div>
+						<p>You can bulk import products from an Excel or CSV file. Go to <strong>Inventory</strong> → <strong>Import Products</strong>
+						and download our template to get started.</p>
+					</div>
+
+					<h2>Step 4: Make Your First Sale</h2>
+					<p>Now you're ready to process your first transaction:</p>
+					<ol>
+						<li>Go to the <strong>Sales</strong> screen (usually the default view)</li>
+						<li>Add items by:
+							<ul>
+								<li>Scanning barcodes with a barcode scanner</li>
+								<li>Typing the SKU and pressing Enter</li>
+								<li>Searching for products by name</li>
+							</ul>
+						</li>
+						<li>Review the cart - adjust quantities if needed</li>
+						<li>Click <strong>Checkout</strong> or press <code>F9</code></li>
+						<li>Enter the payment amount</li>
+						<li>Select payment method (Cash, Card, Mobile Money)</li>
+						<li>Click <strong>Complete Sale</strong></li>
+						<li>Print receipt (if printer is configured)</li>
+					</ol>
+
+					<div class="callout">
+						<div class="callout-title">✅ Success!</div>
+						<p>Congratulations! You've completed your first sale with Deluge POS. The transaction has been recorded,
+						inventory has been updated, and accounting entries have been created automatically.</p>
+					</div>
+
+					<h2>Step 5: End of Day</h2>
+					<p>At the end of your business day:</p>
+					<ol>
+						<li>Go to <strong>Reports</strong> → <strong>Day Summary</strong></li>
+						<li>Review total sales, payment methods, and transactions</li>
+						<li>Reconcile cash drawer with expected amount</li>
+						<li>Click <strong>Close Day</strong> to finalize the day's records</li>
+						<li>Print Z-Report for your records</li>
+					</ol>
+
+					<h2>Common Keyboard Shortcuts</h2>
+					<p>Speed up your workflow with these shortcuts:</p>
+					<ul>
+						<li><code>F1</code> - Help</li>
+						<li><code>F2</code> - Quick Product Search</li>
+						<li><code>F5</code> - Refresh Current View</li>
+						<li><code>F9</code> - Checkout/Complete Sale</li>
+						<li><code>F12</code> - Settings</li>
+						<li><code>Ctrl + N</code> - New Sale</li>
+						<li><code>Ctrl + P</code> - Print Receipt</li>
+						<li><code>Esc</code> - Cancel Current Operation</li>
+					</ul>
+
+					<h2>Next Steps</h2>
+					<p>Now that you're up and running, explore these guides to get more from Deluge POS:</p>
+					<ul>
+						<li><a href="/docs/inventory">Advanced Inventory Management</a> - Bulk units, stock transfers, cycle counts</li>
+						<li><a href="/docs/printer-setup">Printer Setup</a> - Configure thermal and standard printers</li>
+						<li><a href="/docs/user-management">User Management</a> - Add staff members and set permissions</li>
+						<li><a href="/docs/reports">Reports & Analytics</a> - Generate sales and inventory reports</li>
+						<li><a href="/docs/multi-terminal">Multi-Terminal Setup</a> - Connect multiple POS terminals</li>
+					</ul>
+
+					<h2>Need Help?</h2>
+					<p>If you encounter any issues or have questions:</p>
+					<ul>
+						<li>Check our <a href="/docs/faq">FAQ</a> for common questions</li>
+						<li>Visit the <a href="/docs/common-issues">Troubleshooting Guide</a></li>
+						<li><a href="/contact">Contact Support</a> for personalized assistance</li>
+					</ul>
+				</div>
+
+				<div class="doc-nav">
+					<a href="/docs" class="nav-btn">← Back to Docs</a>
+					<a href="/docs/installation" class="nav-btn">Installation Guide →</a>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

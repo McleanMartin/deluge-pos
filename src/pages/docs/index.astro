@@ -1,0 +1,213 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Documentation - ${SITE_TITLE}`} description="Complete documentation for Deluge POS" />
+		<style>
+			main {
+				padding: 4rem 2rem;
+			}
+			.docs-container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.page-header {
+				text-align: center;
+				margin-bottom: 4rem;
+			}
+			.page-header h1 {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+			}
+			.page-header p {
+				font-size: 1.125rem;
+				color: rgb(var(--gray));
+				max-width: 700px;
+				margin: 0 auto;
+			}
+			.docs-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+			.doc-category {
+				background: #ffffff;
+				border: 2px solid rgb(var(--gray-medium));
+				border-radius: var(--border-radius);
+				padding: 2rem;
+				transition: var(--transition);
+			}
+			.doc-category:hover {
+				border-color: rgb(var(--black));
+				box-shadow: var(--box-shadow-lg);
+			}
+			.category-icon {
+				width: 56px;
+				height: 56px;
+				background: #000000;
+				border-radius: var(--border-radius);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #ffffff;
+				font-size: 1.5rem;
+				margin-bottom: 1.5rem;
+			}
+			.doc-category h3 {
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+			}
+			.doc-category p {
+				color: rgb(var(--gray));
+				margin-bottom: 1.5rem;
+			}
+			.doc-links {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.doc-links li {
+				padding: 0.75rem 0;
+				border-bottom: 1px solid rgb(var(--gray-light));
+			}
+			.doc-links li:last-child {
+				border-bottom: none;
+			}
+			.doc-links a {
+				color: rgb(var(--black));
+				text-decoration: none;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				font-weight: 500;
+			}
+			.doc-links a:hover {
+				opacity: 1;
+				color: rgb(var(--black));
+			}
+			.doc-links a::after {
+				content: "→";
+				color: rgb(var(--gray));
+			}
+			.search-box {
+				max-width: 600px;
+				margin: 0 auto 3rem;
+			}
+			.search-box input {
+				width: 100%;
+				padding: 1rem 1.5rem;
+				border: 2px solid rgb(var(--gray-medium));
+				border-radius: var(--border-radius);
+				font-size: 1rem;
+				transition: var(--transition);
+			}
+			.search-box input:focus {
+				outline: none;
+				border-color: rgb(var(--black));
+			}
+			@media (max-width: 768px) {
+				.page-header h1 {
+					font-size: 2rem;
+				}
+				.docs-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="docs-container">
+				<div class="page-header">
+					<h1>Documentation</h1>
+					<p>
+						Everything you need to know about Deluge POS - from installation to advanced features
+					</p>
+				</div>
+
+				<div class="search-box">
+					<input type="search" placeholder="Search documentation..." />
+				</div>
+
+				<div class="docs-grid">
+					<div class="doc-category">
+						<div class="category-icon">🚀</div>
+						<h3>Getting Started</h3>
+						<p>New to Deluge POS? Start here for installation and setup guides.</p>
+						<ul class="doc-links">
+							<li><a href="/docs/quick-start">Quick Start Guide</a></li>
+							<li><a href="/docs/installation">Installation</a></li>
+							<li><a href="/docs/first-sale">Making Your First Sale</a></li>
+						</ul>
+					</div>
+
+					<div class="doc-category">
+						<div class="category-icon">📖</div>
+						<h3>User Guide</h3>
+						<p>Learn how to use Deluge POS features for daily operations.</p>
+						<ul class="doc-links">
+							<li><a href="/docs/sales">Sales & Transactions</a></li>
+							<li><a href="/docs/inventory">Inventory Management</a></li>
+							<li><a href="/docs/customers">Customer Management</a></li>
+							<li><a href="/docs/reports">Reports & Analytics</a></li>
+						</ul>
+					</div>
+
+					<div class="doc-category">
+						<div class="category-icon">⚙️</div>
+						<h3>Administrator Guide</h3>
+						<p>Setup and manage your Deluge POS system effectively.</p>
+						<ul class="doc-links">
+							<li><a href="/docs/multi-terminal">Multi-Terminal Setup</a></li>
+							<li><a href="/docs/user-management">User Management</a></li>
+							<li><a href="/docs/printer-setup">Printer Setup</a></li>
+							<li><a href="/docs/day-end">Day-End Procedures</a></li>
+						</ul>
+					</div>
+
+					<div class="doc-category">
+						<div class="category-icon">📊</div>
+						<h3>Accounting</h3>
+						<p>Financial management and accounting features.</p>
+						<ul class="doc-links">
+							<li><a href="/docs/chart-of-accounts">Chart of Accounts</a></li>
+							<li><a href="/docs/journal-entries">Journal Entries</a></li>
+							<li><a href="/docs/financial-reports">Financial Reports</a></li>
+						</ul>
+					</div>
+
+					<div class="doc-category">
+						<div class="category-icon">🔧</div>
+						<h3>Troubleshooting</h3>
+						<p>Solutions to common issues and error messages.</p>
+						<ul class="doc-links">
+							<li><a href="/docs/common-issues">Common Issues</a></li>
+							<li><a href="/docs/error-messages">Error Messages</a></li>
+							<li><a href="/docs/faq">FAQ</a></li>
+						</ul>
+					</div>
+
+					<div class="doc-category">
+						<div class="category-icon">💻</div>
+						<h3>Developer Guide</h3>
+						<p>Extend and customize Deluge POS for your needs.</p>
+						<ul class="doc-links">
+							<li><a href="/docs/customization">Customization</a></li>
+							<li><a href="/docs/api">API Reference</a></li>
+							<li><a href="/docs/plugins">Plugin Development</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
